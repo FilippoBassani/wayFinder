@@ -12,12 +12,19 @@
        
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
-        <!-- LOCAL DEV -->
+        <!-- LOCAL DEV 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ticket"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="FilippoBassani"/>
+        </properties>-->
+        
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql11.freesqldatabase.com:3306/sql11706234"/>
+            <property name="javax.persistence.jdbc.user" value="sql11706234"/>
+            <property name="javax.persistence.jdbc.password" value="dIwnB4sldn"/>
         </properties>
 
        
