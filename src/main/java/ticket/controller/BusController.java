@@ -3,6 +3,7 @@ package ticket.controller;
 
 
 
+import ticket.entity.Airplane;
 import ticket.entity.Bus;
 import ticket.service.BusService;
 
@@ -30,12 +31,21 @@ public class BusController {
     }
 
     @GetMapping(value = "")
-	  public  ResponseEntity<List<Bus>> ticket() {   
-          String status = "For Sale";
-	      List<Bus> ticket = busService.findByStatus(status);
-   
-	      return ResponseEntity.ok(ticket); 
-	  }
+    public ResponseEntity<List<Bus>> ticket(@RequestParam(required = false) String departureLocation,
+                                                 @RequestParam(required = false) String arrivalLocation,
+                                                 @RequestParam(required = false) String date) {   
+        List<Bus> ticket;
+
+        // Se nessun filtro è fornito, restituisci tutti gli aerei in vendita
+        if (departureLocation == null && arrivalLocation == null && date == null) {
+            ticket = busService.findByStatus("For Sale");
+        } else {
+        	String status = "For Sale";
+            ticket = busService.findByFilters(departureLocation, arrivalLocation, date, status);
+        }
+
+        return ResponseEntity.ok(ticket); 
+    }
     
     @GetMapping(value = "/{id}")
 	  public  ResponseEntity<Bus> ticket(@PathVariable(name = "id") Integer id) {      

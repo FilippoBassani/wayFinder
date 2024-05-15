@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import ticket.entity.Airplane;
 import ticket.entity.Train;
 import ticket.service.TrainService;
 
@@ -31,12 +32,21 @@ public class TrainController {
     }
 
     @GetMapping(value = "")
-	  public  ResponseEntity<List<Train>> ticket() {   
-          String status = "For Sale";
-	      List<Train> ticket = trainService.findByStatus(status);
-   
-	      return ResponseEntity.ok(ticket); 
-	  }
+    public ResponseEntity<List<Train>> ticket(@RequestParam(required = false) String departureLocation,
+                                                 @RequestParam(required = false) String arrivalLocation,
+                                                 @RequestParam(required = false) String date) {   
+        List<Train> ticket;
+
+        // Se nessun filtro è fornito, restituisci tutti gli aerei in vendita
+        if (departureLocation == null && arrivalLocation == null && date == null) {
+            ticket = trainService.findByStatus("For Sale");
+        } else {
+        	String status = "For Sale";
+            ticket = trainService.findByFilters(departureLocation, arrivalLocation, date, status);
+        }
+
+        return ResponseEntity.ok(ticket); 
+    }
     
     @GetMapping(value = "/{id}")
 	  public  ResponseEntity<Train> ticket(@PathVariable(name = "id") Integer id) {      
