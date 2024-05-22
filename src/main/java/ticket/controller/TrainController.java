@@ -4,6 +4,8 @@ package ticket.controller;
 
 
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +59,11 @@ public class TrainController {
     
     @PostMapping(value = "/save-ticket")
     public ResponseEntity<Train> saveTicket(@RequestBody Train ticket) {
+    	LocalDateTime departureDate = ticket.getDepartureDate();
+    	LocalDateTime arrivalDate = ticket.getArrivalDate();
+    	Duration duration = Duration.between(departureDate, arrivalDate);
+    	String durationString = trainService.formatDuration(duration);
+    	ticket.setDuration(durationString);
     	trainService.save(ticket);
         return ResponseEntity.ok(ticket);
     }

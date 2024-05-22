@@ -2,6 +2,7 @@ package ticket.service;
 
 
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 
@@ -69,6 +70,15 @@ public class TrainService {
 	            // Se nessun filtro è fornito, restituisci una lista vuota
 	            return Collections.emptyList();
 	        }
+	    }
+	 public static String formatDuration(Duration duration) {
+	        long days = duration.toDays();
+	        duration = duration.minusDays(days);
+	        long hours = duration.toHours();
+	        duration = duration.minusHours(hours);
+	        long minutes = duration.toMinutes();
+	        
+	        return String.format("%dh %d",hours, minutes);
 	    }
 }
 

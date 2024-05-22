@@ -51,6 +51,12 @@ public class Train {
 	@Column(name = "cognome_compratore")
 	private String surname;
 	
+	@Column(name = "type")
+	private String type;
+	
+	@Column(name = "duration")
+	private String duration;
+	
 	
 	public Integer getId() {
 		return id;
@@ -132,12 +138,31 @@ public class Train {
 		this.surname = surname;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String durationString) {
+		this.duration = durationString;
+	}
+
 	@Override
 	public String toString() {
-		return "Ticket [id=" + id + ", departure=" + departure + ", arrival=" + arrival + ", departureDate="
+		return "Train [id=" + id + ", departure=" + departure + ", arrival=" + arrival + ", departureDate="
 				+ departureDate + ", arrivalDate=" + arrivalDate + ", price=" + price + ", company=" + company
-				+ ", status=" + status + ", name=" + name + ", surname=" + surname + "]";
+				+ ", status=" + status + ", name=" + name + ", surname=" + surname + ", type=" + type + ", duration="
+				+ duration + "]";
 	}
+
+	
 
 	
 
