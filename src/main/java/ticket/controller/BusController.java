@@ -104,7 +104,7 @@ public class BusController {
            if (ticket.getName() != null && ticket.getSurname() != null) {
                ticketBuy.setName(ticket.getName());
                ticketBuy.setSurname(ticket.getSurname());
-               ticketBuy.setStatus("Saled");
+               ticketBuy.setStatus("Sold");
                busService.save(ticketBuy);
                return ResponseEntity.ok(ticketBuy);
            } else {

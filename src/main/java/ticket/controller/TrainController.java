@@ -105,7 +105,7 @@ public class TrainController {
            if (ticket.getName() != null && ticket.getSurname() != null) {
                ticketBuy.setName(ticket.getName());
                ticketBuy.setSurname(ticket.getSurname());
-               ticketBuy.setStatus("Saled");
+               ticketBuy.setStatus("Sold");
                trainService.save(ticketBuy);
                return ResponseEntity.ok(ticketBuy);
            } else {
