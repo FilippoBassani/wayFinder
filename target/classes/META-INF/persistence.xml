@@ -19,12 +19,19 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="FilippoBassani"/>
         </properties>-->
-        
+        <!-- LOCAL 1
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql11.freesqldatabase.com:3306/sql11706234"/>
             <property name="javax.persistence.jdbc.user" value="sql11706234"/>
             <property name="javax.persistence.jdbc.password" value="dIwnB4sldn"/>
+        </properties>-->
+        
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql:// sql7.freesqldatabase.com:3306/sql7708410"/>
+            <property name="javax.persistence.jdbc.user" value="sql7708410"/>
+            <property name="javax.persistence.jdbc.password" value="zaM8fmXgKu"/>
         </properties>
 
        

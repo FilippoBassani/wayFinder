@@ -72,13 +72,10 @@ public class TrainService {
 	        }
 	    }
 	 public static String formatDuration(Duration duration) {
-	        long days = duration.toDays();
-	        duration = duration.minusDays(days);
-	        long hours = duration.toHours();
-	        duration = duration.minusHours(hours);
-	        long minutes = duration.toMinutes();
-	        
-	        return String.format("%dh %d",hours, minutes);
+		  long totalHours = duration.toHours();
+	        long minutes = duration.toMinutes() % 60; // Otteniamo i minuti rimanenti dopo aver considerato le ore complete
+
+	        return String.format("%dh %dm", totalHours, minutes);
 	    }
 }
 
